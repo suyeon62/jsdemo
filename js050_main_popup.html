@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js050_main_popup.html</title>
+    <style>
+      #popup {
+        width: 301px;
+        height: 351px;
+        border: 1px solid black;
+        position: fixed;
+        left: 30%;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>
+        주요 99개 수련 병원에서 정부 의대 증원 방침에 반발해 사직서를 낸
+        전공의가 9,909명인 것으로 집계됐습니다. 이번 집계에는 자료 부실 제출로
+        시정명령 예정인 1개 병원이 제외됐습니다. 오늘(27일) 보건복지부 발표에
+        따르면 어제(26일) 오후 7시 기준 주요 99개 수련 병원에 대한 서면 점검
+        결과 전공의 9,909명이 사직서를 제출했습니다. 전체 소속 전공의의 약 80.6%
+        수준입니다. 소속 전공의의 72.7%인 8,939명은 근무지를 이탈했습니다.
+        제출된 사직서는 모두 수리되지 않았습니다. 집단행동 이후 상급종합병원의
+        신규환자 입원은 24% 줄었습니다. 수술의 경우 상급종합병원 15곳을 기준으로
+        50%, 절반 가량이 줄어들었습니다. 정부는 이들 모두 중증과 경증의 중간
+        정도에 해당하는 '중등증' 또는 '경증' 환자라고 설명했습니다 . 이처럼
+        현재까지 경증 환자의 의료 이용에 일부 불편은 있지만, 중증 환자 진료
+        등에는 큰 차질이 없는 상황이라는 게 정부의 설명입니다. 정부는 지속적으로
+        이틀 뒤인 오는 29일을 복귀 마지노선으로 설정하고, 전공의들을 향해
+        이날까지 복귀할 경우 책임을 묻지 않겠다고 호소하고 있습니다. [윤혜주
+        디지털뉴스 기자 heyjude@mbn.co.kr]
+      </p>
+      <div id='"popup'>
+        <img src="images/popup.jpg" usemap="#pop" />
+      </div>
+      <map name="pop" id="pop">
+        <area shape="rect" coords="255,332,290,345" href="#" alt="창닫기" />
+      </map>
+    </div>
+    <script>
+      let close = document.querySelector("map#pop area");
+      close.onclick = () => {
+        let popup = document.querySelector("div#popup");
+        popup.style.display = "none";
+      };
+    </script>
+  </body>
+</html>

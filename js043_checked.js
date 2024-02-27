@@ -1,29 +1,29 @@
-// //약관 동의
-// document.frm.onsubmit = () => {
-//     let admin = document.frm.admin;
-//     if (!admin.checked) {
-//       alert("약관에 동의해야 합니다.");
-//       return false;
-//     }
-//   };
+let totalCar = document.getElementById('total');
 
-let sum = total.value.valueOf(Number);
-console.log(sum);
+let chbCnt = document.querySelectorAll('tbody input[type="checkbox"]');
+console.log(chbCnt); //NodeList
 
-document.frm.opt1.onclick = function () {
-  document.frm.opt1.checked = this.checked;
-  let opt1Num = opt1.value.valueOf(Number);
-  sum += opt1Num;
-};
+//NodeList을 Array로 변환
+let myChb = [...chbCnt];
 
-document.frm.opt2.onclick = function () {
-  document.frm.opt2.checked = this.checked;
-  let opt2Num = opt2.value.valueOf(Number);
-  sum += opt2Num;
-};
+//checkbox에 onclick이벤트가 발생되었을때 수행될 carCount()을 등록
+myChb.map((element) => {
+  //window
+  //console.log(this);
+  element.onclick = carCount;
+});
 
-document.frm.opt3.onclick = function () {
-  document.frm.opt3.checked = this.checked;
-  let opt2Num = opt3.value.valueOf(Number);
-  sum += opt2Num;
-};
+function carCount() {
+  //this는 현재 이벤트가 발생된 checkbox 객체를 나타냄
+  //console.log(this);
+  //console.log(this.id);
+
+  /*defaultValue는 <input>에 초기에 입력된 value의 값을   기억해 가져온다.*/
+  let basicCar = Number(totalCar.defaultValue);
+
+  myChb.map((element) => {
+    if (element.checked) basicCar += Number(element.value);
+  });
+
+  totalCar.value = basicCar;
+}
